@@ -3,11 +3,85 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Roots — документы</title>
-<meta http-equiv="refresh" content="0; url=privacy.html">
-<style>body{background:#17120d;color:#e8dfc8;font:16px/1.5 Georgia,serif;
-  display:grid;place-content:center;height:100vh;margin:0;text-align:center}
- a{color:#e0a954}</style>
+<title>Vayrn — игры</title>
+<meta name="description" content="Небольшая студия: игры, сделанные вручную и без лишнего.">
+<meta property="og:title" content="Vayrn">
+<meta property="og:description" content="Небольшая студия: игры, сделанные вручную и без лишнего.">
+<meta property="og:type" content="website">
+<style>
+  :root{ --paper:#e8dfc8; --ink:#2a1f14; --ink2:#6d5a45; --sepia:#8a3d1d;
+         --dark:#17120d; --serif:Georgia,"Iowan Old Style","Noto Serif",serif; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--dark);color:var(--paper);
+       font:400 17px/1.6 var(--serif);min-height:100vh;
+       display:flex;flex-direction:column}
+  .wrap{max-width:780px;margin:0 auto;padding:0 20px;width:100%}
+  /* Дети флексбокса по умолчанию не ужимаются уже своего содержимого:
+     строка в 28em выталкивала страницу шире экрана, и на телефоне всё
+     уезжало вправо. */
+  body > *{min-width:0;width:100%}
+  header p{max-width:min(28em,100%)}
+
+  header{text-align:center;padding:76px 20px 10px}
+  header h1{margin:0;font-weight:400;font-size:clamp(40px,10vw,64px);letter-spacing:.22em;
+            text-transform:uppercase}
+  header p{margin:14px auto 0;max-width:28em;color:rgba(232,223,200,.66)}
+
+  main{flex:1;padding:44px 0 20px}
+  h2{font-weight:400;font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+     color:#c98b5e;margin:0 0 18px}
+
+  .game{display:flex;gap:20px;align-items:center;text-decoration:none;color:inherit;
+        background:rgba(232,223,200,.05);border:1px solid rgba(232,223,200,.14);
+        border-radius:10px;padding:18px 20px;transition:background .15s,border-color .15s}
+  .game:hover{background:rgba(232,223,200,.09);border-color:rgba(232,223,200,.3)}
+  .game img{width:84px;height:84px;border-radius:18px;flex:0 0 auto}
+  /* без min-width:0 текст внутри flex не ужимается и выталкивает
+     страницу вбок — на узком экране всё уезжало за край */
+  .game > span{min-width:0;overflow-wrap:break-word}
+  .game h3{margin:0 0 4px;font-weight:400;font-size:25px;letter-spacing:.04em}
+  .game p{margin:0;color:rgba(232,223,200,.62);font-size:16px}
+  .tag{display:inline-block;margin-top:8px;font-size:12px;letter-spacing:.16em;
+       text-transform:uppercase;color:#c98b5e}
+
+  .soon{margin-top:26px;color:rgba(232,223,200,.4);font-style:italic}
+
+  footer{color:rgba(232,223,200,.42);font-size:14px;text-align:center;padding:30px 20px 44px}
+  footer a{color:rgba(232,223,200,.66)}
+  a{color:#e0a954}
+</style>
 </head>
-<body><p>Roots · <a href="privacy.html">политика конфиденциальности</a></p></body>
+<body>
+
+<header>
+  <h1>Vayrn</h1>
+  <p>Небольшая студия. Игры делаются вручную, по одной, и выходят тогда,
+     когда в них не стыдно играть самому.</p>
+</header>
+
+<main>
+  <div class="wrap">
+    <h2>Игры</h2>
+
+    <a class="game" href="roots/">
+      <img src="roots/icon.png" alt="">
+      <span>
+        <h3>Roots</h3>
+        <p>Тихая игра о корне, который ищет воду под землёй. Семьдесят миров,
+           у каждого свои слои, находки и своё растение.</p>
+        <span class="tag">Android · вышла</span>
+      </span>
+    </a>
+
+    <p class="soon">Остальное — когда будет готово.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    Vayrn · <a href="mailto:bobrov.dev8@gmail.com">bobrov.dev8@gmail.com</a>
+  </div>
+</footer>
+
+</body>
 </html>
