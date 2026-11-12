@@ -230,3 +230,13 @@ section{padding:44px 0}
 @media (prefers-reduced-motion:reduce){
   *{transition:none !important}
 }
+
+/* ── переключатель языка ───────────────────────────────── */
+.nav a.lang-sw{
+  color:var(--bg);background:var(--teal);padding:4px 8px;letter-spacing:.12em;
+}
+.nav a.lang-sw:hover{background:var(--pink);color:var(--bg)}
+@media (max-width:600px){
+  .nav{gap:12px}
+  .nav a{font-size:11px;letter-spacing:.12em}
+}
