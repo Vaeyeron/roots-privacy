@@ -4,38 +4,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Roots — политика конфиденциальности</title>
-<style>
-  :root{ --paper:#e8dfc8; --ink:#2a1f14; --ink2:#6d5a45; --sepia:#8a3d1d;
-         --serif:Georgia,"Iowan Old Style","Noto Serif",serif; }
-  *{box-sizing:border-box}
-  body{
-    margin:0;padding:28px 18px 64px;background:#17120d;color:var(--ink);
-    font:400 16px/1.55 var(--serif);
-  }
-  main{
-    max-width:720px;margin:0 auto;padding:30px 28px 34px;background:var(--paper);
-    border-radius:3px;box-shadow:0 20px 60px rgba(0,0,0,.6);
-  }
-  .eyebrow{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--sepia)}
-  h1{margin:4px 0 2px;font-weight:400;font-size:33px;letter-spacing:.06em}
-  h2{margin:30px 0 8px;font-weight:400;font-size:21px;letter-spacing:.03em}
-  h3{margin:20px 0 6px;font-weight:600;font-size:16px}
-  .rule{height:0;border-top:1px solid rgba(42,31,20,.3);border-bottom:1px solid rgba(42,31,20,.3);
-        padding-top:2px;margin:14px 0 18px}
-  p,li{color:#3a2c1e}
-  li{margin:4px 0}
-  .note{color:var(--ink2);font-style:italic}
-  table{border-collapse:collapse;width:100%;margin:10px 0 4px;font-size:14.5px}
-  th,td{border:1px solid rgba(42,31,20,.22);padding:7px 9px;text-align:left;vertical-align:top}
-  th{background:rgba(138,61,29,.08);font-weight:600}
-  code{font:13px ui-monospace,Menlo,Consolas,monospace;background:rgba(42,31,20,.07);padding:1px 4px;border-radius:2px}
-  .lang{margin-top:44px;padding-top:22px;border-top:1px dashed rgba(42,31,20,.3)}
-  a{color:var(--sepia)}
-  footer{max-width:720px;margin:14px auto 0;color:rgba(232,223,200,.45);font-size:12px;text-align:center}
-</style>
+<meta name="theme-color" content="#14122B">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
-<main>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="Vayrn — на главную">
+      <img class="mark" src="../assets/vayrn-mark.svg" alt="">
+      <img class="word" src="../assets/vayrn-wordmark.svg" alt="Vayrn">
+    </a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="../#games">Игры</a>
+      <a href="./">Roots</a>
+      <a href="privacy.html" aria-current="page">Политика</a>
+    </nav>
+  </div>
+</header>
+
+<main class="doc">
 
   <div class="eyebrow">Roots</div>
   <h1>Политика конфиденциальности</h1>
@@ -215,6 +203,14 @@
   </section>
 
 </main>
-<footer>Roots — подземный определитель · <a href="mailto:bobrov.dev8@gmail.com">bobrov.dev8@gmail.com</a></footer>
+<footer class="foot">
+  <div class="wrap">
+    <a href="../" aria-label="Vayrn"><img class="mark" src="../assets/vayrn-mark.svg" alt=""></a>
+    <span>© 2026 Vayrn</span>
+    <a href="../">Студия</a>
+    <a href="./">Roots</a>
+    <a class="sp" href="mailto:bobrov.dev8@gmail.com">bobrov.dev8@gmail.com</a>
+  </div>
+</footer>
 </body>
 </html>

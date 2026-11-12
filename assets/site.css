@@ -1,0 +1,232 @@
+/* ===========================================================
+   Vayrn — общий стиль сайта.
+
+   Всё здесь выведено из знака студии, а не придумано рядом с ним:
+     • цвета — четыре цвета логотипа и пятый, приглушённая бирюза
+       его рамки;
+     • угловые скобки — та самая рамка-прицел вокруг монограммы,
+       она отмечает здесь всё, на что стоит навести взгляд;
+     • скошенные углы кнопок и наклон заголовков — срез граней V и A;
+     • розовая тень со сдвигом — как под буквами названия;
+     • моноширинные подписи с «//» — строка GAME STUDIO под знаком.
+
+   Шрифты системные, и это не экономия: сайт не тянет ничего с чужих
+   серверов, как и сама игра. Подключить шрифт с Google — значит
+   отдать ему адрес каждого посетителя ради красивой буквы «а».
+   =========================================================== */
+
+:root{
+  --bg:#14122B;          /* фон знака */
+  --bg-2:#1B1838;        /* плашки: тот же индиго, на шаг светлее */
+  --line:#2C2853;        /* тихие границы */
+  --teal:#3DE0C8;
+  --teal-dim:#2A8F8A;    /* цвет рамки-прицела */
+  --pink:#FF3D81;
+  --cream:#F6F1E4;
+  --mute:#9C98BD;        /* второстепенный текст */
+
+  --sans:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"Cascadia Mono",Consolas,"Courier New",monospace;
+  --cut:12px;            /* срез угла */
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--cream);
+  font:400 17px/1.6 var(--sans);
+  /* едва заметная сетка — экран, а не лист бумаги */
+  background-image:
+    linear-gradient(rgba(61,224,200,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(61,224,200,.035) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+img,svg{max-width:100%;display:block}
+a{color:var(--teal)}
+a:hover{color:var(--cream)}
+:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+/* ── подпись в духе «// GAME STUDIO» ───────────────────── */
+.tag{
+  font:700 12px/1.4 var(--mono);letter-spacing:.22em;text-transform:uppercase;
+  color:var(--teal);margin:0;
+}
+.tag::before{content:"// ";color:var(--teal-dim)}
+.tag.pink{color:var(--pink)}
+.tag.pink::before{color:#a02a57}
+
+/* ── шапка ─────────────────────────────────────────────── */
+.top{
+  position:sticky;top:0;z-index:5;
+  background:rgba(20,18,43,.9);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.top .wrap{display:flex;align-items:center;gap:18px;height:62px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.brand .mark{height:26px;width:auto;flex:0 0 auto}
+.brand .word{height:17px;width:auto;flex:0 0 auto}
+.nav{margin-left:auto;display:flex;gap:22px;min-width:0}
+.nav a{
+  font:700 12px var(--mono);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--mute);text-decoration:none;white-space:nowrap;
+}
+.nav a:hover,.nav a[aria-current]{color:var(--teal)}
+
+/* ── рамка-прицел: четыре скобки по углам ──────────────── */
+.scope{position:relative}
+.scope::before,.scope::after,
+.scope > .c1,.scope > .c2{
+  content:"";position:absolute;width:22px;height:22px;
+  border:3px solid var(--teal-dim);pointer-events:none;
+  transition:border-color .2s,transform .2s;
+}
+.scope::before{top:0;left:0;border-right:0;border-bottom:0}
+.scope::after{top:0;right:0;border-left:0;border-bottom:0}
+.scope > .c1{bottom:0;right:0;border-left:0;border-top:0}
+.scope > .c2{bottom:0;left:0;border-right:0;border-top:0}
+
+/* ── первый экран студии ───────────────────────────────── */
+.hero{padding:72px 0 64px;text-align:center}
+.hero .scope{display:inline-block;padding:34px 46px;margin-bottom:34px}
+.hero .mark{width:min(250px,56vw);height:auto}
+.hero .word{width:min(380px,78vw);height:auto;margin:0 auto 22px}
+.hero .lead{max-width:34em;margin:22px auto 0;color:var(--mute);font-size:18px}
+
+/* ── разделы ───────────────────────────────────────────── */
+section{padding:44px 0}
+.h2{
+  margin:10px 0 26px;font:800 clamp(26px,5vw,36px)/1.15 var(--sans);
+  letter-spacing:.01em;font-style:italic;   /* наклон, как у букв названия */
+}
+
+/* ── карточка игры ─────────────────────────────────────── */
+.card{
+  display:flex;gap:22px;align-items:center;min-width:0;
+  padding:22px 24px;text-decoration:none;color:inherit;
+  background:var(--bg-2);border:1px solid var(--line);
+  transition:border-color .2s,transform .2s,box-shadow .2s;
+}
+.card:hover{
+  border-color:var(--teal);color:inherit;
+  transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--pink);
+}
+.card:hover.scope::before,.card:hover.scope::after,
+.card:hover.scope > .c1,.card:hover.scope > .c2{border-color:var(--teal)}
+.card img.ico{width:92px;height:92px;border-radius:20px;flex:0 0 auto}
+.card .body{min-width:0;flex:1}
+.card h3{margin:0 0 4px;font:800 26px/1.2 var(--sans);font-style:italic}
+.card p{margin:0;color:var(--mute);font-size:16px}
+.card .go{
+  flex:0 0 auto;font:700 22px var(--mono);color:var(--teal);
+  transition:transform .2s;
+}
+.card:hover .go{transform:translateX(5px);color:var(--pink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{
+  font:700 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  padding:4px 9px;border:1px solid var(--teal-dim);color:var(--teal);
+}
+.chip.live{border-color:var(--pink);color:var(--pink)}
+
+.soon{
+  margin-top:16px;padding:22px 24px;border:1px dashed var(--line);
+  color:var(--mute);font:400 14px var(--mono);letter-spacing:.06em;
+}
+
+/* ── кнопка со срезанным углом ─────────────────────────── */
+.btn{
+  display:inline-block;padding:14px 30px;text-decoration:none;
+  font:800 15px var(--mono);letter-spacing:.12em;text-transform:uppercase;
+  background:var(--pink);color:var(--bg);
+  clip-path:polygon(0 0,calc(100% - var(--cut)) 0,100% var(--cut),100% 100%,var(--cut) 100%,0 calc(100% - var(--cut)));
+  transition:background .15s,transform .15s;
+}
+.btn:hover{background:var(--cream);color:var(--bg);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--teal);box-shadow:inset 0 0 0 2px var(--teal-dim);clip-path:none}
+.btn.ghost:hover{color:var(--bg);background:var(--teal)}
+
+/* ── страница игры ─────────────────────────────────────── */
+.game-hero{padding:56px 0 34px}
+.game-hero .row{display:flex;gap:26px;align-items:center;min-width:0}
+.game-hero img.ico{width:132px;height:132px;border-radius:28px;flex:0 0 auto;
+                   box-shadow:8px 8px 0 var(--pink)}
+.game-hero .txt{min-width:0}
+.game-hero h1{
+  margin:6px 0 8px;font:800 clamp(44px,11vw,84px)/.95 var(--sans);
+  font-style:italic;letter-spacing:.01em;
+  text-shadow:4px 4px 0 var(--pink);
+}
+.game-hero .sub{margin:0;color:var(--mute);font-size:19px;max-width:28em}
+.cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:28px}
+.cta .later{font:400 13px var(--mono);color:var(--mute);letter-spacing:.06em}
+
+.lead-p{font-size:19px;max-width:40em;color:var(--cream)}
+
+.shots{
+  display:flex;gap:16px;overflow-x:auto;padding:14px 20px 18px;
+  scroll-snap-type:x mandatory;scrollbar-color:var(--teal-dim) transparent;
+}
+.shots img{
+  width:236px;height:auto;flex:0 0 auto;scroll-snap-align:center;
+  border:1px solid var(--line);background:var(--bg-2);
+}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.feat{background:var(--bg-2);border:1px solid var(--line);padding:20px 20px 22px;min-width:0}
+.feat .n{font:700 12px var(--mono);letter-spacing:.2em;color:var(--pink)}
+.feat h3{margin:8px 0 6px;font:800 19px/1.25 var(--sans)}
+.feat p{margin:0;color:var(--mute);font-size:15.5px}
+
+.plain{background:var(--bg-2);border-left:3px solid var(--teal);padding:22px 24px;max-width:46em}
+.plain p{margin:0 0 10px}
+.plain p:last-child{margin:0}
+
+/* ── документ (политика) ───────────────────────────────── */
+.doc{max-width:760px;margin:0 auto;padding:44px 20px 30px}
+.doc .eyebrow{font:700 12px var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--teal)}
+.doc .eyebrow::before{content:"// ";color:var(--teal-dim)}
+.doc h1{margin:8px 0 4px;font:800 clamp(30px,6.5vw,44px)/1.1 var(--sans);font-style:italic}
+.doc h2{margin:38px 0 10px;font:800 23px/1.25 var(--sans);color:var(--cream)}
+.doc h3{margin:24px 0 6px;font:700 13px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--pink)}
+.doc p,.doc li{color:#d9d5ee}
+.doc li{margin:5px 0}
+.doc b{color:var(--cream)}
+.doc .rule{height:3px;width:64px;background:var(--pink);margin:16px 0 22px}
+.doc .note{color:var(--mute);font-style:italic}
+.doc table{border-collapse:collapse;width:100%;margin:12px 0 6px;font-size:15px}
+.doc th,.doc td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+.doc th{background:var(--bg-2);font:700 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.doc td{color:#d9d5ee}
+.doc code{font:13px var(--mono);background:var(--bg-2);padding:1px 5px;color:var(--teal)}
+.doc .lang{margin-top:54px;padding-top:30px;border-top:1px dashed var(--line)}
+
+/* ── подвал ────────────────────────────────────────────── */
+.foot{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 46px}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center}
+.foot,.foot a{font:400 13px var(--mono);letter-spacing:.06em;color:var(--mute)}
+.foot a:hover{color:var(--teal)}
+.foot .mark{height:20px;width:auto}
+.foot .sp{margin-left:auto}
+
+/* ── узкий экран ───────────────────────────────────────── */
+@media (max-width:600px){
+  body{font-size:16px}
+  .top .wrap{height:56px}
+  .brand .word{display:none}          /* в шапке хватает знака */
+  .nav{gap:16px}
+  .hero{padding:48px 0 40px}
+  .hero .scope{padding:26px 30px}
+  .card{flex-wrap:wrap;padding:18px}
+  .card img.ico{width:72px;height:72px;border-radius:16px}
+  .card .go{display:none}
+  .game-hero .row{flex-direction:column;align-items:flex-start}
+  .game-hero img.ico{width:104px;height:104px;border-radius:22px;box-shadow:6px 6px 0 var(--pink)}
+  .foot .sp{margin-left:0;width:100%}
+}
+
+/* движение — только тем, кто его не отключал */
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important}
+}
